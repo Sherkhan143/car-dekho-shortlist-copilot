@@ -11,8 +11,9 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+const allowedOrigins = ["http://localhost:5173", "https://car-dekho-shortlist-copilot.vercel.app"];
 app.use(cors({
-  origin: "http://localhost:5173",
+  origin: allowedOrigins,
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
 }));
 app.use("/api/cars", carRoutes);
